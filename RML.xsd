@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FILE    : RML.xsd
+     AUTHOR  : (C) Copyright 2013 by Peter C. Chapin <PChapin@vtc.vsc.edu>
+     SUBJECT : XML schema for describe recipes.
+-->
+
+<xs:schema targetNamespace="http://www.vtc.edu/XML/RML" xmlns="http://www.vtc.edu/XML/RML"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  elementFormDefault="qualified" xml:lang="en-US">
+
+  <xs:annotation>
+    <xs:documentation>This is a schema that defines the XML format used for describing
+      recipes.</xs:documentation>
+  </xs:annotation>
+
+  <!-- ROOT ELEMENTS -->
+
+  <xs:element name="recipe-list">
+    <xs:annotation>
+      <xs:documentation>A container for a collection of recipes.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="recipe" type="recipeType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="recipe" type="recipeType">
+    <xs:annotation>
+      <xs:documentation>This element contains information about exactly one
+        recipe.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+
+  <!-- COMPLEX TYPES -->
+
+  <xs:complexType name="recipeType">
+    <xs:annotation>
+      <xs:documentation>Describes the structure of a recipe.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ingredients">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ingredient" type="ingredientType" minOccurs="0"
+              maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cooking-instructions" type="cookingInstructionsType" minOccurs="0"/>
+      <xs:element name="instructions" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="step" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="comments" type="commentsType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+
+  <xs:complexType name="ingredientType">
+    <xs:annotation>
+      <xs:documentation>Describes a single ingredient.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="quantity" type="xs:float"/>
+        <xs:attribute name="units" type="unitsType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="cookingInstructionsType">
+    <xs:annotation>
+      <xs:documentation>This type describes the specifics of cooking
+        requirements.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="summary" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="time" type="xs:duration" use="required"/>
+              <xs:attribute name="temperature" type="temperatureType" use="required"/>
+              <xs:attribute name="units" type="temperatureUnitsType"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="commentsType">
+    <xs:annotation>
+      <xs:documentation>This type gives general comments from the taste
+        testers.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="comment" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" minOccurs="0"
+              maxOccurs="unbounded"/>
+          </xs:sequence>
+          <xs:attribute name="author" type="xs:string"/>
+          <xs:attribute name="date" type="xs:date"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!-- SIMPLE TYPES -->
+
+  <xs:simpleType name="specificUnitsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cup"/>
+      <xs:enumeration value="tsp"/>
+      <xs:enumeration value="tbsp"/>
+      <xs:enumeration value="oz"/>
+      <xs:enumeration value="lb"/>
+      <xs:enumeration value="gram"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="userDefinedUnitsType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="user!.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="unitsType">
+    <xs:union memberTypes="specificUnitsType userDefinedUnitsType"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="temperatureUnitsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="F"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="temperatureType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="100"/>
+      <xs:maxInclusive value="500"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

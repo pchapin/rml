@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="RML.xsl"?>
+
+<!-- FILE        : recipe-box.xml
+     LAST REVISED: 2014-03-16
+     AUTHOR      : Peter C. Chapin <PChapin@vtc.vsc.edu>
+     SUBJECT     : Example RML document.
+     
+     This document is used as a quick sample of RML for purposes of usability testing. -->
+
+<recipe-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.vtc.edu/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+  xmlns="http://www.vtc.edu/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <recipe name="Chocolate Chip Cookies">
+    <ingredients>
+      <ingredient quantity="1" units="cup">White flour</ingredient>
+      <ingredient quantity="0.5" units="user!stick">Butter</ingredient>
+      <ingredient quantity="16" units="oz">Chocolate Chips</ingredient>
+    </ingredients>
+    <cooking-instructions>
+      <summary time="PT0H5M12.2334S" temperature="200" units="F"/>
+      <notes>Be sure the cooking time is followed exactly.</notes>
+    </cooking-instructions>
+    <instructions>
+      <step>Mix.</step>
+      <step>Bake.</step>
+      <step>Eat.</step>
+    </instructions>
+    <comments>
+      <comment author="Peter" date="2013-04-01">
+        <xhtml:p>Yum!</xhtml:p>
+      </comment>
+      <comment author="Jill" date="2013-04-02">
+        <xhtml:p>These cookies are terrible! Never bake them again as long as you
+          live.</xhtml:p>
+      </comment>
+    </comments>
+  </recipe>
+
+  <recipe name="Cupcakes">
+    <ingredients>
+      <ingredient quantity="1" units="cup">Whole Wheat Flour</ingredient>
+    </ingredients>
+    <cooking-instructions>
+      <summary time="PT1S" temperature="200" units="F"/>
+      <notes>Bake.</notes>
+    </cooking-instructions>
+    <instructions>
+      <step>Eat.</step>
+    </instructions>
+  </recipe>
+
+</recipe-list>
