@@ -23,7 +23,7 @@
       <xsl:if test="rml:recipe">
         <head>
           <title>
-            <xsl:value-of select="rml:recipe[@name]"/>
+            <xsl:value-of select="rml:recipe/@name"/>
           </title>
         </head>
         <body>

@@ -42,6 +42,14 @@
       <xs:documentation>Describes the structure of a recipe.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="description">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" minOccurs="0"
+              maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="ingredients">
         <xs:complexType>
           <xs:sequence>
@@ -58,6 +66,8 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <!-- TODO: The minServes and maxServes should be broken out separately. -->
+      <xs:element name="serves" minOccurs="0" type="xs:string"/>
       <xs:element name="comments" type="commentsType" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="name" type="xs:string" use="required"/>
@@ -128,6 +138,8 @@
       <xs:enumeration value="oz"/>
       <xs:enumeration value="lb"/>
       <xs:enumeration value="gram"/>
+      <xs:enumeration value="15oz can"/>
+      <xs:enumeration value="28oz can"/>      
     </xs:restriction>
   </xs:simpleType>
 
