@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- FILE    : RML.xsd
-     AUTHOR  : (C) Copyright 2013 by Peter C. Chapin <PChapin@vtc.vsc.edu>
+     AUTHOR  : (C) Copyright 2017 by Peter C. Chapin <peter@pchapin.org>
      SUBJECT : XML schema for describe recipes.
 -->
 
-<xs:schema targetNamespace="http://www.vtc.edu/XML/RML" xmlns="http://www.vtc.edu/XML/RML"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  elementFormDefault="qualified" xml:lang="en-US">
+<xs:schema targetNamespace="http://www.pchapin.org/XML/RML"
+  xmlns="http://www.pchapin.org/XML/RML" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" elementFormDefault="qualified" xml:lang="en-US">
 
   <xs:annotation>
     <xs:documentation>This is a schema that defines the XML format used for describing

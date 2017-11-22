@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- FILE    : RML.xsl
-     AUTHOR  : Peter C. Chapin <PChapin@vtc.vsc.edu>
+     AUTHOR  : Peter C. Chapin <peter@pchapin.org>
      SUBJECT : XSL stylesheet for converting RML to XHTML.
 
      This style sheet assumes that only a single recipe is contained in the RML file
@@ -10,7 +10,7 @@
 -->
 
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rml="http://www.vtc.edu/XML/RML">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rml="http://www.pchapin.org/XML/RML">
 
   <xsl:output method="html"/>
 

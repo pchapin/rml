@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="RML.xsl"?>
 
 <!-- FILE    : RML-sample.xml
-     AUTHOR  : Peter C. Chapin <PChapin@vtc.vsc.edu>
+     AUTHOR  : Peter C. Chapin <peter@pchapin.org>
      SUBJECT : Example RML document. -->
 
 <recipe-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.vtc.edu/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
-  xmlns="http://www.vtc.edu/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  xsi:schemaLocation="http://www.pchapin.org/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+  xmlns="http://www.pchapin.org/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <recipe name="Chocolate Chip Cookies">
     <ingredients>

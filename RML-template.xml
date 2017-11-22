@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="RML.xsl"?>
 
-<recipe name="Name of recipe here!" xmlns="http://www.vtc.edu/XML/RML"
+<recipe name="Name of recipe here!" xmlns="http://www.pchapin.org/XML/RML"
   xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.vtc.edu/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+  xsi:schemaLocation="http://www.pchapin.org/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
 
   <ingredients>
     <ingredient quantity="1" units="cup">White flour</ingredient>

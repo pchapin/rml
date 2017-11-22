@@ -2,15 +2,15 @@
 <?xml-stylesheet type="text/xsl" href="RML.xsl"?>
 
 <!-- FILE        : recipe-box.xml
-     LAST REVISED: 2014-03-16
-     AUTHOR      : Peter C. Chapin <PChapin@vtc.vsc.edu>
+     LAST REVISED: 2017-11-22
+     AUTHOR      : Peter C. Chapin <peter@pchapin.org>
      SUBJECT     : Example RML document.
      
      This document is used as a quick sample of RML for purposes of usability testing. -->
 
 <recipe-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.vtc.edu/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
-  xmlns="http://www.vtc.edu/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  xsi:schemaLocation="http://www.pchapin.org/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+  xmlns="http://www.pchapin.org/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <recipe name="Chocolate Chip Cookies">
     <ingredients>
