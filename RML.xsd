@@ -132,6 +132,7 @@
 
   <xs:simpleType name="specificUnitsType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="cloves"/>
       <xs:enumeration value="cup"/>
       <xs:enumeration value="tsp"/>
       <xs:enumeration value="tbsp"/>
