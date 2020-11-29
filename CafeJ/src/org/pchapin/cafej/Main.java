@@ -1,4 +1,4 @@
-package edu.vtc.cafej;
+package org.pchapin.cafej;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

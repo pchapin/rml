@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- FILE    : RML.xsd
-     AUTHOR  : (C) Copyright 2017 by Peter C. Chapin <peter@pchapin.org>
+     AUTHOR  : (C) Copyright 2020 by Peter C. Chapin <peter@pchapin.org>
      SUBJECT : XML schema for describe recipes.
+     
+     TODO:
+     
+     + Some facility for recording references (to cookbooks, online URLs, or people) should be
+       provided. Perhaps a references element consisting of a list of reference elements. Each
+       reference could have an ID that a recipe uses to link itself to a particular reference.
+       This puts all reference information into a single place where it can be more easily
+       maintained.
+       
+     + Some facility for storing the contact information of people making comments should be
+       provided.
+       
+     + Some way to indicate which ingredient in a list of alternatives is primary should be
+       provided. Also it should be possible to mark some ingredients as "non-essential" meaning
+       the recipe can be made successfully without them if necessary.
 -->
 
 <xs:schema targetNamespace="http://www.pchapin.org/XML/RML"
@@ -42,7 +57,7 @@
       <xs:documentation>Describes the structure of a recipe.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="description">
+      <xs:element name="description" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" minOccurs="0"
@@ -53,8 +68,10 @@
       <xs:element name="ingredients">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="ingredient" type="ingredientType" minOccurs="0"
-              maxOccurs="unbounded"/>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="ingredient" type="ingredientType"/>
+              <xs:element name="alternatives" type="alternativesType"/>              
+            </xs:choice>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -85,6 +102,17 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  
+
+  <xs:complexType name="alternativesType">
+    <xs:annotation>
+      <xs:documentation>Describes a collection of ingredients that can be substituted for
+      one another.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ingredient" type="ingredientType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 
 
   <xs:complexType name="cookingInstructionsType">
@@ -104,7 +132,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="notes" type="commentsType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -140,7 +168,10 @@
       <xs:enumeration value="lb"/>
       <xs:enumeration value="gram"/>
       <xs:enumeration value="15oz can"/>
-      <xs:enumeration value="28oz can"/>      
+      <xs:enumeration value="28oz can"/>
+      <xs:enumeration value="small"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="large"/>
     </xs:restriction>
   </xs:simpleType>
 
