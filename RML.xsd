@@ -70,7 +70,7 @@
           <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
               <xs:element name="ingredient" type="ingredientType"/>
-              <xs:element name="alternatives" type="alternativesType"/>              
+              <xs:element name="alternatives" type="alternativesType"/>
             </xs:choice>
           </xs:sequence>
         </xs:complexType>
@@ -102,12 +102,12 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
+
 
   <xs:complexType name="alternativesType">
     <xs:annotation>
-      <xs:documentation>Describes a collection of ingredients that can be substituted for
-      one another.</xs:documentation>
+      <xs:documentation>Describes a collection of ingredients that can be substituted for one
+        another.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ingredient" type="ingredientType" maxOccurs="unbounded"/>
@@ -160,18 +160,20 @@
 
   <xs:simpleType name="specificUnitsType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="cloves"/>
-      <xs:enumeration value="cup"/>
-      <xs:enumeration value="tsp"/>
-      <xs:enumeration value="tbsp"/>
-      <xs:enumeration value="oz"/>
-      <xs:enumeration value="lb"/>
-      <xs:enumeration value="gram"/>
       <xs:enumeration value="15oz can"/>
       <xs:enumeration value="28oz can"/>
-      <xs:enumeration value="small"/>
-      <xs:enumeration value="medium"/>
+      <xs:enumeration value="cloves"/>
+      <xs:enumeration value="cup"/>
+      <xs:enumeration value="gram"/>
       <xs:enumeration value="large"/>
+      <xs:enumeration value="lb"/>
+      <xs:enumeration value="leaf"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="oz"/>
+      <xs:enumeration value="small"/>
+      <xs:enumeration value="sprigs"/>
+      <xs:enumeration value="tbsp"/>
+      <xs:enumeration value="tsp"/>
     </xs:restriction>
   </xs:simpleType>
 
