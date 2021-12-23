@@ -3,10 +3,6 @@
 <!-- FILE    : RML.xsl
      AUTHOR  : Peter C. Chapin <peter@pchapin.org>
      SUBJECT : XSL stylesheet for converting RML to XHTML.
-
-     This style sheet assumes that only a single recipe is contained in the RML file
-     being processed. Obviously a more general style sheet should be able to handle
-     both single recipes and recipe lists.
 -->
 
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"

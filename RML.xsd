@@ -65,29 +65,27 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="ingredients">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-              <xs:element name="ingredient" type="ingredientType"/>
-              <xs:element name="alternatives" type="alternativesType"/>
-            </xs:choice>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="ingredients" type="ingredientsType"/>
       <xs:element name="cooking-instructions" type="cookingInstructionsType" minOccurs="0"/>
-      <xs:element name="instructions" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="step" type="xs:string" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <!-- TODO: The minServes and maxServes should be broken out separately. -->
+      <xs:element name="instructions" type="instructionsType" minOccurs="0"/>
       <xs:element name="serves" minOccurs="0" type="xs:string"/>
       <xs:element name="comments" type="commentsType" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="ingredientsType">
+    <xs:annotation>
+      <xs:documentation>Describes a collection of ingredients.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ingredient" type="ingredientType"/>
+        <xs:element name="alternatives" type="alternativesType"/>
+        <xs:element name="section" type="ingredientsSectionType"/>
+      </xs:choice>     
+    </xs:sequence>
   </xs:complexType>
 
 
@@ -107,18 +105,37 @@
   <xs:complexType name="alternativesType">
     <xs:annotation>
       <xs:documentation>Describes a collection of ingredients that can be substituted for one
-        another.</xs:documentation>
+        another. Elements of this type can be used in places where a single ingredient is
+        expected. Any one of the alternatives mentioned such an element stands as one
+        ingredient in an overall list of ingredients.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ingredient" type="ingredientType" maxOccurs="unbounded"/>
+      <xs:element name="ingredient" type="ingredientType" minOccurs="2" maxOccurs="unbounded"/>
     </xs:sequence>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="ingredientsSectionType">
+    <xs:annotation>
+      <xs:documentation>Describes a section of related ingredients.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="ingredient" type="ingredientType"/>
+        <xs:element name="alternatives" type="alternativesType"/>
+        <xs:element name="section" type="ingredientsSectionType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name"/>
   </xs:complexType>
 
 
   <xs:complexType name="cookingInstructionsType">
     <xs:annotation>
-      <xs:documentation>This type describes the specifics of cooking
-        requirements.</xs:documentation>
+      <xs:documentation>Describes the specifics of how to cook the recipe. Elements of this
+        type are not intended to cover the details of preparation (elements of type
+        instructionsType can be used for that). Elements of this type only cover the actual
+        cooking itself.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="summary" minOccurs="0">
@@ -136,6 +153,32 @@
     </xs:sequence>
   </xs:complexType>
 
+
+  <xs:complexType name="instructionsType">
+    <xs:annotation>
+      <xs:documentation>Describes a collection of instructions.</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="step" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="section" type="instructionsSectionType"/>
+    </xs:choice>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="instructionsSectionType">
+    <xs:annotation>
+      <xs:documentation>Describes a section of related instructions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="step" type="xs:string" maxOccurs="unbounded"/>
+        <xs:element name="section" type="instructionsSectionType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name"/>
+  </xs:complexType>
+  
+  
   <xs:complexType name="commentsType">
     <xs:annotation>
       <xs:documentation>This type gives general comments from the taste
