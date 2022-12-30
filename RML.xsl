@@ -57,6 +57,7 @@
     <xsl:apply-templates select="rml:ingredients"/>
     <xsl:apply-templates select="rml:cooking-instructions"/>
     <xsl:apply-templates select="rml:instructions"/>
+    <xsl:apply-templates select="rml:comments"></xsl:apply-templates>
   </xsl:template>
 
 
@@ -116,4 +117,17 @@
     </ol>
   </xsl:template>
 
+
+  <!-- Formats the comments. -->
+  <xsl:template match="rml:comments">
+    <h3>Comments</h3>
+    <ol>
+      <xsl:for-each select="rml:comment">
+        <li>
+          <xsl:value-of select="."/>
+        </li>
+      </xsl:for-each>
+    </ol>
+  </xsl:template>
+  
 </xsl:stylesheet>
