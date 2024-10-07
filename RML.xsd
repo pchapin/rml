@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- FILE    : RML.xsd
-     AUTHOR  : (C) Copyright 2020 by Peter C. Chapin <peter@pchapin.org>
+     AUTHOR  : (C) Copyright 2020 by Peter Chapin <spicacality@kelseymountain.org>
      SUBJECT : XML schema for describe recipes.
      
      TODO:
@@ -19,8 +19,8 @@
        the recipe can be made successfully without them if necessary.
 -->
 
-<xs:schema targetNamespace="http://www.pchapin.org/XML/RML"
-  xmlns="http://www.pchapin.org/XML/RML" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema targetNamespace="https://www.pchapin.org/XML/RML"
+  xmlns="https://www.pchapin.org/XML/RML" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xhtml="http://www.w3.org/1999/xhtml" elementFormDefault="qualified" xml:lang="en-US">
 
   <xs:annotation>

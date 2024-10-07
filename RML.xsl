@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- FILE    : RML.xsl
-     AUTHOR  : Peter C. Chapin <peter@pchapin.org>
+     AUTHOR  : Peter Chapin <spicacality@kelseymountain.org>
      SUBJECT : XSL stylesheet for converting RML to XHTML.
 -->
 
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rml="http://www.pchapin.org/XML/RML">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rml="https://www.pchapin.org/XML/RML">
 
   <xsl:output method="html"/>
 

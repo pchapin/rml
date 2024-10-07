@@ -3,14 +3,13 @@
 
 <!-- FILE        : recipe-box.xml
      LAST REVISED: 2017-11-22
-     AUTHOR      : Peter C. Chapin <peter@pchapin.org>
+     AUTHOR      : Peter Chapin <spicacality@kelseymountain.org>
      SUBJECT     : Example RML document.
      
      This document is used as a quick sample of RML for purposes of usability testing. -->
 
 <recipe-list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.pchapin.org/XML/RML RML.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
-  xmlns="http://www.pchapin.org/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  xmlns="https://www.pchapin.org/XML/RML" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <recipe name="Chocolate Chip Cookies">
     <ingredients>
@@ -20,7 +19,7 @@
     </ingredients>
     <cooking-instructions>
       <summary time="PT0H5M12.2334S" temperature="200" units="F"/>
-      <notes>Be sure the cooking time is followed exactly.</notes>
+      <notes><comment><xhtml:p>Be sure the cooking time is followed exactly.</xhtml:p></comment></notes>
     </cooking-instructions>
     <instructions>
       <step>Mix.</step>
@@ -44,7 +43,7 @@
     </ingredients>
     <cooking-instructions>
       <summary time="PT1S" temperature="200" units="F"/>
-      <notes>Bake.</notes>
+      <notes><comment><xhtml:p>Bake.</xhtml:p></comment></notes>
     </cooking-instructions>
     <instructions>
       <step>Eat.</step>
